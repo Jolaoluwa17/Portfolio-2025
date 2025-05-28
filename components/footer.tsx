@@ -1,5 +1,5 @@
-import { Heart } from "lucide-react"
-import Link from "next/link"
+import { Heart } from "lucide-react";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -11,7 +11,8 @@ export default function Footer() {
               <span className="text-primary">Dev</span>Portfolio
             </Link>
             <p className="text-muted-foreground mt-2 max-w-md">
-              A fullstack developer specializing in building exceptional digital experiences.
+              A fullstack developer specializing in building exceptional digital
+              experiences.
             </p>
           </div>
 
@@ -20,22 +21,34 @@ export default function Footer() {
               <h4 className="font-medium mb-4">Navigation</h4>
               <ul className="space-y-2">
                 <li>
-                  <Link href="#hero" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Link
+                    href="#hero"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link href="#about" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Link
+                    href="#about"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
                     About
                   </Link>
                 </li>
                 <li>
-                  <Link href="#skills" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Link
+                    href="#skills"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
                     Skills
                   </Link>
                 </li>
                 <li>
-                  <Link href="#projects" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Link
+                    href="#projects"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
                     Projects
                   </Link>
                 </li>
@@ -46,21 +59,27 @@ export default function Footer() {
               <h4 className="font-medium mb-4">Contact</h4>
               <ul className="space-y-2">
                 <li>
-                  <Link href="#contact" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Link
+                    href="#contact"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
                     Get in Touch
                   </Link>
                 </li>
                 <li>
                   <a
-                    href="mailto:alex@example.com"
+                    href="mailto:olusanyajolaoluwa@gmail.com"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    alex@example.com
+                    olusanyajolaoluwa@gmail.com
                   </a>
                 </li>
                 <li>
-                  <a href="tel:+15551234567" className="text-muted-foreground hover:text-primary transition-colors">
-                    +1 (555) 123-4567
+                  <a
+                    href="tel:+447440176901"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    (+44) 7440176901
                   </a>
                 </li>
               </ul>
@@ -70,22 +89,34 @@ export default function Footer() {
               <h4 className="font-medium mb-4">Social</h4>
               <ul className="space-y-2">
                 <li>
-                  <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                  <a
+                    href="#"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
                     GitHub
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                  <a
+                    href="#"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
                     LinkedIn
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                  <a
+                    href="#"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
                     Twitter
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                  <a
+                    href="#"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
                     Instagram
                   </a>
                 </li>
@@ -96,13 +127,14 @@ export default function Footer() {
 
         <div className="border-t mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Alex Johnson. All rights reserved.
+            © {new Date().getFullYear()} Jolaoluwa Olusanya. All rights reserved.
           </p>
           <p className="text-sm text-muted-foreground mt-4 md:mt-0 flex items-center">
-            Made with <Heart className="h-4 w-4 mx-1 text-red-500" /> using Next.js and Tailwind CSS
+            Made with <Heart className="h-4 w-4 mx-1 text-red-500" /> using
+            Next.js and Tailwind CSS
           </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }
