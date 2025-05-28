@@ -104,7 +104,7 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-background/95 backdrop-blur-md"
           >
-            <div className="container mx-auto px-4 py-4">
+            <div className="container mx-auto px-4 py-4 mt-[-15px]">
               <div className="flex flex-col space-y-4">
                 {navLinks.map((link, index) => (
                   <motion.div

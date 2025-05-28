@@ -83,14 +83,14 @@ export default function About() {
             forefront of web development.
           </p>
 
-          <div className="grid grid-cols-2 gap-4 pt-4">
+          <div className="grid grid-cols-2 gap-4 pt-4 box-border">
             <div>
               <h4 className="font-medium">Name:</h4>
               <p className="text-muted-foreground">Jolaoluwa Olusanya</p>
             </div>
             <div>
               <h4 className="font-medium">Email:</h4>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground break-words">
                 olusanyajolaoluwa@gmail.com
               </p>
             </div>

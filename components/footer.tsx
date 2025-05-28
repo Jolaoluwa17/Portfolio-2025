@@ -69,7 +69,7 @@ export default function Footer() {
                 <li>
                   <a
                     href="mailto:olusanyajolaoluwa@gmail.com"
-                    className="text-muted-foreground hover:text-primary transition-colors"
+                    className="text-muted-foreground hover:text-primary transition-colors break-words"
                   >
                     olusanyajolaoluwa@gmail.com
                   </a>
