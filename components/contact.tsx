@@ -37,7 +37,7 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
+    setIsSubmitting(true);
 
     if (!formRef.current) return;
 
@@ -59,6 +59,8 @@ export default function Contact() {
           );
 
           setFormState({ name: "", email: "", subject: "", message: "" });
+          setIsSubmitting(false);
+
           setTimeout(() => {
             setIsSubmitted(false);
             setLoading(false);
@@ -75,6 +77,7 @@ export default function Contact() {
           );
 
           setFormState({ name: "", email: "", subject: "", message: "" });
+          setIsSubmitting(false);
           setTimeout(() => {
             setIsSubmitted(false);
             setLoading(false);
@@ -84,8 +87,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="container mx-auto px-4 relative">
-      <Notification show={isSubmitted} loading={loading} message={msg} />
+    <div className="container mx-auto px-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -248,9 +250,9 @@ export default function Contact() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="lg:col-span-3"
         >
-          <div className="bg-card rounded-xl p-8 border shadow-sm">
+          <div className="bg-card rounded-xl p-8 border shadow-sm relative">
             <h3 className="text-2xl font-bold mb-6">Send Me a Message</h3>
-
+            <Notification show={isSubmitted} loading={loading} message={msg} />
             {/* {isSubmitted ? (
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
