@@ -15,10 +15,10 @@ export default function Projects() {
       title: "Neuro",
       description:
         "A quiz management web application that enables users to create quizzes, share links with recipients, and track detailed assessment metrics.",
-      image: "/placeholder.svg?height=600&width=800",
+      image: "/neuro.png?height=600&width=800",
       tags: ["Next.js", "TypeScript", "Node.js", "Express", "MongoDB"],
-      liveUrl: "#",
-      githubUrl: "#",
+      liveUrl: "https://neuroquiz.netlify.app",
+      githubUrl: "https://github.com/Jolaoluwa17/Neuro",
       longDescription:
         "Neuro is an ongoing project designed to streamline quiz creation and distribution. Users can easily build custom quizzes, share them with multiple recipients via links, and monitor various metrics related to assessment performance. The app focuses on delivering insightful analytics and an intuitive user experience, built using modern web technologies.",
     },
@@ -26,10 +26,10 @@ export default function Projects() {
       title: "Portfolio Website 2024",
       description:
         "A personal portfolio website showcasing my skills, projects, and professional journey with a clean, modern design.",
-      image: "/placeholder.svg?height=600&width=800",
+      image: "/portfolio2024.png?height=600&width=800",
       tags: ["React.js", "TypeScript", "Tailwind CSS", "Vite"],
-      liveUrl: "#",
-      githubUrl: "#",
+      liveUrl: "https://jolaoluwa-portfolio-2024.vercel.app",
+      githubUrl: "https://github.com/Jolaoluwa17/Portfolio_",
       longDescription:
         "This portfolio website highlights my latest work, technical skills, and experience. Designed with a focus on usability and performance, it features responsive layouts, dark mode support, and easy navigation. Built using React and Tailwind CSS with Vite for fast development and optimized builds.",
     },

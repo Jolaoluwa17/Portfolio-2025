@@ -60,3 +60,31 @@
     scroll-behavior: smooth;
   }
 }
+
+.message_sent_notification {
+  position: absolute;
+  box-shadow: rgba(255, 255, 255, 0.4) 0px 1px 4px;
+
+  top: 40px;
+  right: 40px;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #020817;
+  font-size: 15px;
+}
+.message_sent_text {
+  padding: 15px;
+}
+.indicator_container {
+  position: relative;
+  height: 4px; /* Height of the loader */
+  background-color: #020817; /* Background of the loader */
+  overflow: hidden; /* Hide overflow */
+}
+
+.indicator {
+  position: absolute;
+  height: 100%;
+  background-color: #7c3aed; /* Loader color */
+  border-radius: 10px;
+}

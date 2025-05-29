@@ -76,7 +76,7 @@ export default function Hero() {
               className="flex gap-4 pt-4"
             >
               <Link
-                href="https://github.com"
+                href="https://github.com/Jolaoluwa17"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -85,7 +85,7 @@ export default function Hero() {
                 </Button>
               </Link>
               <Link
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/jolaoluwa-olusanya-539798234"
                 target="_blank"
                 rel="noopener noreferrer"
               >
