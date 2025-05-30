@@ -111,10 +111,10 @@ export default function Hero() {
             transition={{ duration: 0.5 }}
             className="flex justify-center"
           >
-            <div className="relative w-72 h-72 md:w-96 md:h-96">
+            <div className="relative w-82 h-82 md:w-96 md:h-96">
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 to-secondary/20 animate-pulse" />
               <img
-                src="/placeholder.svg?height=400&width=400"
+                src="/landingPage.png?height=400&width=400"
                 alt="Developer Portrait"
                 className="rounded-full object-cover w-full h-full p-2"
               />

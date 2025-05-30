@@ -160,7 +160,7 @@ export default function Contact() {
             <h4 className="font-medium mb-4">Follow Me</h4>
             <div className="flex space-x-4">
               <a
-                href="#"
+                href="https://github.com/Jolaoluwa17"
                 className="p-3 rounded-full bg-card border hover:bg-muted transition-colors"
                 aria-label="GitHub"
               >
@@ -179,7 +179,7 @@ export default function Contact() {
                 </svg>
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/in/jolaoluwa-olusanya-539798234"
                 className="p-3 rounded-full bg-card border hover:bg-muted transition-colors"
                 aria-label="LinkedIn"
               >

@@ -51,7 +51,7 @@ export default function About() {
           <div className="absolute -inset-4 rounded-xl bg-gradient-to-r from-primary/20 to-secondary/20 blur-lg opacity-70" />
           <div className="relative aspect-square overflow-hidden rounded-xl">
             <img
-              src="/placeholder.svg?height=600&width=600"
+              src="/animatedImage.png?height=600&width=600"
               alt="About Me"
               className="object-cover w-full h-full"
             />
@@ -105,8 +105,12 @@ export default function About() {
           </div>
 
           <Button asChild className="mt-6">
-            <Link href="#" download>
-              <FileText className="mr-2 h-4 w-4" /> Download Resume
+            <Link
+              href="https://1drv.ms/b/c/d3810bfe395b3c11/EaFzmPn1CohLooCa14BIhRUBmnrpLPRKSP_LcnAossz32Q?e=vIQaY0"
+              download
+              target="_blank"
+            >
+              <FileText className="mr-2 h-4 w-4" /> View Resume
             </Link>
           </Button>
         </motion.div>
