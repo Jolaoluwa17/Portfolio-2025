@@ -34,49 +34,50 @@ export default function Projects() {
         "This portfolio website highlights my latest work, technical skills, and experience. Designed with a focus on usability and performance, it features responsive layouts, dark mode support, and easy navigation. Built using React and Tailwind CSS with Vite for fast development and optimized builds.",
     },
     {
-      title: "Finance Dashboard",
+      title: "Tic-Tac-Toe",
       description:
-        "An interactive financial dashboard with data visualization, expense tracking, and budget planning tools.",
-      image: "/placeholder.svg?height=600&width=800",
-      tags: ["React", "D3.js", "Express", "MySQL", "Redux"],
-      liveUrl: "#",
-      githubUrl: "#",
+        "A classic single and two-player Tic-Tac-Toe game built with Next.js, featuring interactive gameplay and a sleek UI.",
+      image: "/tictactoe.png?height=600&width=800",
+      tags: ["Next.js", "React", "JavaScript", "CSS"],
+      liveUrl: "https://tic-tac-toe-pi-gold.vercel.app",
+      githubUrl: "https://github.com/Jolaoluwa17/tic-tac-toe",
       longDescription:
-        "This financial dashboard provides users with powerful tools to manage their finances. It includes interactive charts and graphs for visualizing spending patterns, income tracking, expense categorization, budget planning features, and financial goal setting. The dashboard uses D3.js for advanced data visualization and implements secure authentication.",
+        "This project is a web-based implementation of the classic Tic-Tac-Toe game. Developed using Next.js and React, it features smooth, responsive gameplay for two players. The interface is clean and intuitive, making it easy for users to take turns, track wins, and restart the game. It serves as a simple but fun demonstration of component-based architecture and state management in a modern React framework.",
     },
-    {
-      title: "Social Media Platform",
-      description:
-        "A social networking platform with user profiles, posts, comments, likes, and direct messaging.",
-      image: "/placeholder.svg?height=600&width=800",
-      tags: ["Next.js", "GraphQL", "Apollo", "MongoDB", "AWS"],
-      liveUrl: "#",
-      githubUrl: "#",
-      longDescription:
-        "This social media platform enables users to connect and share content. Features include customizable user profiles, post creation with rich media support, commenting system, likes and reactions, direct messaging, friend/follow functionality, and notifications. The platform uses GraphQL for efficient data fetching and AWS for media storage and processing.",
-    },
-    {
-      title: "Fitness Tracking App",
-      description:
-        "A mobile-first fitness application for tracking workouts, nutrition, and progress with personalized plans.",
-      image: "/placeholder.svg?height=600&width=800",
-      tags: ["React Native", "Firebase", "Redux", "Node.js", "Express"],
-      liveUrl: "#",
-      githubUrl: "#",
-      longDescription:
-        "This fitness tracking application helps users achieve their health goals. It includes workout tracking with exercise library, nutrition logging and meal planning, progress photos and measurements, personalized workout and diet plans, achievement badges, and social sharing features. The app syncs data across devices and provides detailed analytics on user progress.",
-    },
-    {
-      title: "Real Estate Platform",
-      description:
-        "A property listing and management platform with search filters, virtual tours, and agent communication.",
-      image: "/placeholder.svg?height=600&width=800",
-      tags: ["Vue.js", "Django", "PostgreSQL", "Redis", "Docker"],
-      liveUrl: "#",
-      githubUrl: "#",
-      longDescription:
-        "This real estate platform connects property buyers, sellers, and agents. Features include advanced property search with filters, virtual property tours, detailed property listings with high-quality images, agent profiles and communication tools, saved favorites, and property alerts. The platform includes an admin dashboard for property management and analytics.",
-    },
+
+    // {
+    //   title: "Social Media Platform",
+    //   description:
+    //     "A social networking platform with user profiles, posts, comments, likes, and direct messaging.",
+    //   image: "/placeholder.svg?height=600&width=800",
+    //   tags: ["Next.js", "GraphQL", "Apollo", "MongoDB", "AWS"],
+    //   liveUrl: "#",
+    //   githubUrl: "#",
+    //   longDescription:
+    //     "This social media platform enables users to connect and share content. Features include customizable user profiles, post creation with rich media support, commenting system, likes and reactions, direct messaging, friend/follow functionality, and notifications. The platform uses GraphQL for efficient data fetching and AWS for media storage and processing.",
+    // },
+    // {
+    //   title: "Fitness Tracking App",
+    //   description:
+    //     "A mobile-first fitness application for tracking workouts, nutrition, and progress with personalized plans.",
+    //   image: "/placeholder.svg?height=600&width=800",
+    //   tags: ["React Native", "Firebase", "Redux", "Node.js", "Express"],
+    //   liveUrl: "#",
+    //   githubUrl: "#",
+    //   longDescription:
+    //     "This fitness tracking application helps users achieve their health goals. It includes workout tracking with exercise library, nutrition logging and meal planning, progress photos and measurements, personalized workout and diet plans, achievement badges, and social sharing features. The app syncs data across devices and provides detailed analytics on user progress.",
+    // },
+    // {
+    //   title: "Real Estate Platform",
+    //   description:
+    //     "A property listing and management platform with search filters, virtual tours, and agent communication.",
+    //   image: "/placeholder.svg?height=600&width=800",
+    //   tags: ["Vue.js", "Django", "PostgreSQL", "Redis", "Docker"],
+    //   liveUrl: "#",
+    //   githubUrl: "#",
+    //   longDescription:
+    //     "This real estate platform connects property buyers, sellers, and agents. Features include advanced property search with filters, virtual property tours, detailed property listings with high-quality images, agent profiles and communication tools, saved favorites, and property alerts. The platform includes an admin dashboard for property management and analytics.",
+    // },
   ];
 
   const container = {
