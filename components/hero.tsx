@@ -114,7 +114,7 @@ export default function Hero() {
             <div className="relative w-82 h-82 md:w-96 md:h-96">
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 to-secondary/20 animate-pulse" />
               <img
-                src="/landingPage.png?height=400&width=400"
+                src="/jolaoluwa.jpg?height=400&width=400"
                 alt="Developer Portrait"
                 className="rounded-full object-cover w-full h-full p-2"
               />
