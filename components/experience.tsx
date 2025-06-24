@@ -11,15 +11,15 @@ export default function Experience() {
       location: "Casper, Wyoming, USA (Remote)",
       period: "2024 - Present",
       description:
-        "Collaborate on backend development for the TechWings Evaluator App. Communicate effectively with team members to resolve technical challenges, ensuring smooth project progress. Contribute to requirement gathering by identifying issues and proposing solutions to improve functionality and user experience.",
+        "Collaborate on backend development for the TechWings Evaluator App called ProficioNext. Communicate effectively with team members to resolve technical challenges, ensuring smooth project progress. Contribute to requirement gathering by identifying issues and proposing solutions to improve functionality and user experience.",
     },
     {
       title: "Full-Stack Developer",
-      company: "Techgate",
+      company: "TechGate",
       location: "Lagos, Nigeria",
       period: "2021 - Present",
       description:
-        "Developed the frontend of the university companion app Acadu using React Native, integrating backend APIs with Redux. Contributed to multiple projects including Royal Gates Group's frontend with React.js and Vite, and built the event scheduling website ReservNow with Next.js and Redux, also supporting backend development with Node.js, Express.js, and MongoDB.",
+        "Developed the frontend of the university companion app Acadu using React Native, integrating backend APIs with Redux. Contributed to multiple projects including Royal Gates Group's official website as well as Lagos State Materials Testing Laboratory (LSTML) official website. Built the event scheduling website ReservNow with Next.js and Redux, also supporting backend development with Node.js, Express.js, and MongoDB.",
     },
     {
       title: "Data Analyst",
