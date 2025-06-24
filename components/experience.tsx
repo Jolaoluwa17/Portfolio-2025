@@ -17,7 +17,7 @@ export default function Experience() {
       title: "Full-Stack Developer",
       company: "Techgate",
       location: "Lagos, Nigeria",
-      period: "2023 - Present",
+      period: "2021 - Present",
       description:
         "Developed the frontend of the university companion app Acadu using React Native, integrating backend APIs with Redux. Contributed to multiple projects including Royal Gates Group's frontend with React.js and Vite, and built the event scheduling website ReservNow with Next.js and Redux, also supporting backend development with Node.js, Express.js, and MongoDB.",
     },
@@ -46,7 +46,7 @@ export default function Experience() {
       location: "Ilishan-Remo, Ogun State, Nigeria",
       period: "2019 - 2023",
       description:
-        "Graduated with a 4.17 CGPA, focusing on Web Development and Database Systems. Final year project: Library Management System (LMS).",
+        "Graduated with a 4.17 CGPA (2nd Class Upper), focusing on Web Development and Database Systems. Final year project: Library Management System (LMS).",
     },
   ];
 

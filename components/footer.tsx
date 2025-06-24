@@ -90,7 +90,7 @@ export default function Footer() {
               <ul className="space-y-2">
                 <li>
                   <a
-                    href="#"
+                    href="https://github.com/Jolaoluwa17"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     GitHub
@@ -98,7 +98,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="https://www.linkedin.com/in/jolaoluwa-olusanya-539798234"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     LinkedIn
