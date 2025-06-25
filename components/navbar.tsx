@@ -1,61 +1,66 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
-        setScrolled(true)
+        setScrolled(true);
       } else {
-        setScrolled(false)
+        setScrolled(false);
       }
-    }
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinks = [
-    { name: "Home", href: "#hero" },
     { name: "About", href: "#about" },
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
     { name: "Experience", href: "#experience" },
     { name: "Contact", href: "#contact" },
-  ]
+  ];
 
   const scrollToSection = (href: string) => {
-    setIsOpen(false)
-    const element = document.querySelector(href)
+    setIsOpen(false);
+    const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/80 backdrop-blur-md shadow-md" : "bg-transparent"
+        scrolled
+          ? "bg-background/80 backdrop-blur-md shadow-md"
+          : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
             <Link
               href="#hero"
               onClick={(e) => {
-                e.preventDefault()
-                scrollToSection("#hero")
+                e.preventDefault();
+                scrollToSection("#hero");
               }}
               className="text-2xl font-bold"
             >
@@ -75,8 +80,8 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   onClick={(e) => {
-                    e.preventDefault()
-                    scrollToSection(link.href)
+                    e.preventDefault();
+                    scrollToSection(link.href);
                   }}
                   className="text-foreground/80 hover:text-primary transition-colors"
                 >
@@ -88,8 +93,17 @@ export default function Navbar() {
 
           {/* Mobile Navigation Toggle */}
           <div className="md:hidden">
-            <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle Menu">
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle Menu"
+            >
+              {isOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </Button>
           </div>
         </div>
@@ -116,8 +130,8 @@ export default function Navbar() {
                     <Link
                       href={link.href}
                       onClick={(e) => {
-                        e.preventDefault()
-                        scrollToSection(link.href)
+                        e.preventDefault();
+                        scrollToSection(link.href);
                       }}
                       className="text-foreground/80 hover:text-primary transition-colors block py-2"
                     >
@@ -131,5 +145,5 @@ export default function Navbar() {
         )}
       </AnimatePresence>
     </motion.nav>
-  )
+  );
 }

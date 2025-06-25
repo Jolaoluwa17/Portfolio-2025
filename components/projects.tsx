@@ -12,6 +12,17 @@ export default function Projects() {
 
   const projects = [
     {
+      title: "Focus",
+      description:
+        "A modern clothing eCommerce platform offering a curated selection of fashion-forward styles for men, women, and kids.",
+      image: "/focus.png?height=600&width=800",
+      tags: ["Next.js", "TypeScript", "shadcn", "Tailwind CSS"],
+      liveUrl: "https://focus-ecommerce.netlify.app",
+      githubUrl: "https://github.com/Jolaoluwa17/Focus",
+      longDescription:
+        "Focus is a sleek and responsive eCommerce web application tailored for fashion retail. It allows users to browse a wide range of stylish clothing collections, add items to their cart, and securely check out. With a clean interface and seamless navigation, Focus delivers a smooth shopping experience across all devices. Built using modern tools like Next.js, TypeScript, and shadcn UI components, it combines performance with aesthetic appeal.",
+    },
+    {
       title: "Neuro",
       description:
         "A quiz management web application that enables users to create quizzes, share links with recipients, and track detailed assessment metrics.",
@@ -22,16 +33,39 @@ export default function Projects() {
       longDescription:
         "Neuro is an ongoing project designed to streamline quiz creation and distribution. Users can easily build custom quizzes, share them with multiple recipients via links, and monitor various metrics related to assessment performance. The app focuses on delivering insightful analytics and an intuitive user experience, built using modern web technologies.",
     },
+    // {
+    //   title: "Portfolio Website 2024",
+    //   description:
+    //     "A personal portfolio website showcasing my skills, projects, and professional journey with a clean, modern design.",
+    //   image: "/portfolio2024.png?height=600&width=800",
+    //   tags: ["React.js", "TypeScript", "Tailwind CSS", "Vite"],
+    //   liveUrl: "https://jolaoluwa-portfolio-2024.vercel.app",
+    //   githubUrl: "https://github.com/Jolaoluwa17/Portfolio_",
+    //   longDescription:
+    //     "This portfolio website highlights my latest work, technical skills, and experience. Designed with a focus on usability and performance, it features responsive layouts, dark mode support, and easy navigation. Built using React and Tailwind CSS with Vite for fast development and optimized builds.",
+    // },
+
     {
-      title: "Portfolio Website 2024",
+      title: "Royal Gate Group",
       description:
-        "A personal portfolio website showcasing my skills, projects, and professional journey with a clean, modern design.",
-      image: "/portfolio2024.png?height=600&width=800",
-      tags: ["React.js", "TypeScript", "Tailwind CSS", "Vite"],
-      liveUrl: "https://jolaoluwa-portfolio-2024.vercel.app",
-      githubUrl: "https://github.com/Jolaoluwa17/Portfolio_",
+        "Official website of Royal Gate Group, an international export and import company offering reliable global trade and logistics solutions.",
+      image: "/royalGate.png?height=600&width=800",
+      tags: ["Next.js", "Tailwind CSS", "Vite"],
+      liveUrl: "https://royalgategroup.com.ng",
+      githubUrl: "#",
       longDescription:
-        "This portfolio website highlights my latest work, technical skills, and experience. Designed with a focus on usability and performance, it features responsive layouts, dark mode support, and easy navigation. Built using React and Tailwind CSS with Vite for fast development and optimized builds.",
+        "Royal Gate Group is a global export and import company dedicated to facilitating seamless international trade. The platform showcases the company's wide range of services including product sourcing, global logistics, and customs management. Built with modern web technologies, the website serves as an information hub for clients, partners, and prospects—highlighting the company’s commitment to efficiency, transparency, and global connectivity.",
+    },
+    {
+      title: "Lagos State Material Testing Laboratory",
+      description:
+        "Official mobile platform for Lagos State Material Testing Laboratory, offering access to testing services, reports, and regulatory information.",
+      image: "/lstml.png?height=600&width=800",
+      tags: ["React Native", "Firebase", "Redux", "Node.js", "Express"],
+      liveUrl: "https://www.lsmtl.lg.gov.ng",
+      githubUrl: "#",
+      longDescription:
+        "The Lagos State Material Testing Laboratory (LSMTL) mobile application provides a user-friendly platform for accessing construction material testing services, viewing test reports, and staying updated on regulatory standards. Built with React Native and powered by Firebase and Node.js, the app ensures easy scheduling of tests, secure data access, and real-time updates. It supports transparency and efficiency in quality assurance for building and infrastructure projects across Lagos State.",
     },
     {
       title: "Tic-Tac-Toe",
@@ -44,29 +78,6 @@ export default function Projects() {
       longDescription:
         "This project is a web-based implementation of the classic Tic-Tac-Toe game. Developed using Next.js and React, it features smooth, responsive gameplay for two players. The interface is clean and intuitive, making it easy for users to take turns, track wins, and restart the game. It serves as a simple but fun demonstration of component-based architecture and state management in a modern React framework.",
     },
-
-    // {
-    //   title: "Social Media Platform",
-    //   description:
-    //     "A social networking platform with user profiles, posts, comments, likes, and direct messaging.",
-    //   image: "/placeholder.svg?height=600&width=800",
-    //   tags: ["Next.js", "GraphQL", "Apollo", "MongoDB", "AWS"],
-    //   liveUrl: "#",
-    //   githubUrl: "#",
-    //   longDescription:
-    //     "This social media platform enables users to connect and share content. Features include customizable user profiles, post creation with rich media support, commenting system, likes and reactions, direct messaging, friend/follow functionality, and notifications. The platform uses GraphQL for efficient data fetching and AWS for media storage and processing.",
-    // },
-    // {
-    //   title: "Fitness Tracking App",
-    //   description:
-    //     "A mobile-first fitness application for tracking workouts, nutrition, and progress with personalized plans.",
-    //   image: "/placeholder.svg?height=600&width=800",
-    //   tags: ["React Native", "Firebase", "Redux", "Node.js", "Express"],
-    //   liveUrl: "#",
-    //   githubUrl: "#",
-    //   longDescription:
-    //     "This fitness tracking application helps users achieve their health goals. It includes workout tracking with exercise library, nutrition logging and meal planning, progress photos and measurements, personalized workout and diet plans, achievement badges, and social sharing features. The app syncs data across devices and provides detailed analytics on user progress.",
-    // },
     // {
     //   title: "Real Estate Platform",
     //   description:

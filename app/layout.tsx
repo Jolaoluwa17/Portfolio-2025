@@ -6,7 +6,6 @@ export const metadata = {
   title: "Jolaoluwa Olusanya - Fullstack Developer Portfolio",
   description:
     "Portfolio website showcasing the projects and skills of Jolaoluwa Olusanya, a fullstack developer specializing in modern web technologies.",
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({
