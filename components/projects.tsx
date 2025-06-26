@@ -61,7 +61,7 @@ export default function Projects() {
       description:
         "Official mobile platform for Lagos State Material Testing Laboratory, offering access to testing services, reports, and regulatory information.",
       image: "/lstml.png?height=600&width=800",
-      tags: ["React Native", "Firebase", "Redux", "Node.js", "Express"],
+      tags: ["Next.js", "Tailwind CSS", "Node.js", "Express"],
       liveUrl: "https://www.lsmtl.lg.gov.ng",
       githubUrl: "#",
       longDescription:
