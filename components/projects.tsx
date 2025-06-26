@@ -44,7 +44,6 @@ export default function Projects() {
     //   longDescription:
     //     "This portfolio website highlights my latest work, technical skills, and experience. Designed with a focus on usability and performance, it features responsive layouts, dark mode support, and easy navigation. Built using React and Tailwind CSS with Vite for fast development and optimized builds.",
     // },
-
     {
       title: "Royal Gate Group",
       description:
@@ -72,7 +71,7 @@ export default function Projects() {
       description:
         "A classic single and two-player Tic-Tac-Toe game built with Next.js, featuring interactive gameplay and a sleek UI.",
       image: "/tictactoe.png?height=600&width=800",
-      tags: ["Next.js", "React", "JavaScript", "CSS"],
+      tags: ["Next.js", "CSS"],
       liveUrl: "https://tic-tac-toe-pi-gold.vercel.app",
       githubUrl: "https://github.com/Jolaoluwa17/tic-tac-toe",
       longDescription:
