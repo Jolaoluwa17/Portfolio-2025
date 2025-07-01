@@ -52,6 +52,14 @@ export default function Footer() {
                     Projects
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    href="#experience"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    Experience
+                  </Link>
+                </li>
               </ul>
             </div>
 
