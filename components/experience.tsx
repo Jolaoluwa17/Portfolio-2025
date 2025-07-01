@@ -7,20 +7,29 @@ export default function Experience() {
   const workExperience = [
     {
       title: "Full-Stack Developer",
-      company: "TechWings Global",
-      location: "Casper, Wyoming, USA (Remote)",
-      period: "2024 - Present",
-      description:
-        "Collaborate on backend development for the TechWings Evaluator App called ProficioNext. Communicate effectively with team members to resolve technical challenges, ensuring smooth project progress. Contribute to requirement gathering by identifying issues and proposing solutions to improve functionality and user experience.",
-    },
-    {
-      title: "Full-Stack Developer",
       company: "TechGate",
       location: "Lagos, Nigeria",
       period: "2021 - Present",
       description:
         "Developed the frontend of the university companion app Acadu using React Native, integrating backend APIs with Redux. Contributed to multiple projects including Royal Gates Group's official website as well as Lagos State Materials Testing Laboratory (LSTML) official website. Built the event scheduling website ReservNow with Next.js and Redux, also supporting backend development with Node.js, Express.js, and MongoDB.",
     },
+    {
+      title: "Backend Developer",
+      company: "Tekktopia Ltd",
+      location: "Lagos, Nigeria",
+      period: "2024 - Present",
+      description:
+        "Worked as part of the frontend team that developed the official Tekktopia website. Contributed to multiple projects, including the Royal Gates Group and Lagos State Materials Testing Laboratory (LSTML) websites. Played a key role in building the frontend of the Acadu university companion app using React Native and Redux for API integration. Developed the event scheduling platform ReservNow with Next.js and Redux, also supporting backend development using Node.js, Express.js, and MongoDB. Currently leading the backend development of CribXpert, a Nigeria-based platform similar to Airbnb, focused on property listings and short-term rentals.",
+    },
+    {
+      title: "Full-Stack Developer",
+      company: "TechWings Global",
+      location: "Casper, Wyoming, USA (Remote)",
+      period: "2024 - 2025",
+      description:
+        "Collaborate on backend development for the TechWings Evaluator App called ProficioNext. Communicate effectively with team members to resolve technical challenges, ensuring smooth project progress. Contribute to requirement gathering by identifying issues and proposing solutions to improve functionality and user experience.",
+    },
+
     {
       title: "Data Analyst",
       company: "Gems Consulting Limited",
