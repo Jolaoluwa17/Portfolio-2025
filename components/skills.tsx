@@ -33,7 +33,7 @@ export default function Skills() {
     {
       category: "Database",
       icon: <Database className="h-8 w-8" />,
-      items: ["MongoDB", "PostgreSQL"],
+      items: ["MongoDB", "PostgreSQL", "Firebase"],
     },
     {
       category: "DevOps",
