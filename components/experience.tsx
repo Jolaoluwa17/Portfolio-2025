@@ -19,7 +19,7 @@ export default function Experience() {
       location: "Lagos, Nigeria",
       period: "2024 - Present",
       description:
-        "Worked as part of the frontend team that developed the official Tekktopia website. Contributed to multiple projects, including the Royal Gates Group and Lagos State Materials Testing Laboratory (LSTML) websites. Played a key role in building the frontend of the Acadu university companion app using React Native and Redux for API integration. Developed the event scheduling platform ReservNow with Next.js and Redux, also supporting backend development using Node.js, Express.js, and MongoDB. Currently leading the backend development of CribXpert, a Nigeria-based platform similar to Airbnb, focused on property listings and short-term rentals.",
+        "Worked as part of the frontend team that developed the official Tekktopia website. Currently leading the backend development of CribXpert, a Nigeria-based platform similar to Airbnb, focused on property listings and short-term rentals.",
     },
     {
       title: "Full-Stack Developer",
