@@ -12,6 +12,26 @@ export default function Projects() {
 
   const projects = [
     {
+      title: "ReceiptSnap",
+      description:
+        "A receipt automation tool that extracts, manages, and emails purchase data seamlessly from uploaded images.",
+      image: "/receiptsnap.png?height=600&width=800",
+      tags: [
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "React",
+        "Tailwind CSS",
+        "OCR",
+        "Nodemailer",
+      ],
+      liveUrl: "https://receiptsnap.netlify.app", // Replace with actual live URL
+      githubUrl: "#", 
+      longDescription:
+        "ReceiptSnap is a full-stack web application built to automate the tedious task of receipt collation. Users can upload receipt images, and the system automatically extracts relevant data using OCR technology (powered by Asprise). The platform stores all receipts in a database, provides a clean and intuitive UI for managing them, and allows users to export their data into well-formatted PDFs. With built-in email functionality via Nodemailer and Gmail integration, users can send their reports directly from the platform. A demo account is available, and an automated cleanup script ensures demo data is removed every 24 hours.",
+    },
+
+    {
       title: "Focus",
       description:
         "A modern clothing eCommerce platform offering a curated selection of fashion-forward styles for men, women, and kids.",
