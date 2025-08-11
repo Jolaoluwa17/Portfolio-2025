@@ -26,7 +26,7 @@ export default function Projects() {
         "Nodemailer",
       ],
       liveUrl: "https://receiptsnap.netlify.app",
-      githubUrl: "#", 
+      githubUrl: "#",
       longDescription:
         "ReceiptSnap is a full-stack web application built to automate the tedious task of receipt collation. Users can upload receipt images, and the system automatically extracts relevant data using OCR technology (powered by Asprise). The platform stores all receipts in a database, provides a clean and intuitive UI for managing them, and allows users to export their data into well-formatted PDFs. With built-in email functionality via Nodemailer and Gmail integration, users can send their reports directly from the platform. A demo account is available, and an automated cleanup script ensures demo data is removed every 24 hours.",
     },
@@ -53,17 +53,6 @@ export default function Projects() {
       longDescription:
         "Neuro is an ongoing project designed to streamline quiz creation and distribution. Users can easily build custom quizzes, share them with multiple recipients via links, and monitor various metrics related to assessment performance. The app focuses on delivering insightful analytics and an intuitive user experience, built using modern web technologies.",
     },
-    // {
-    //   title: "Portfolio Website 2024",
-    //   description:
-    //     "A personal portfolio website showcasing my skills, projects, and professional journey with a clean, modern design.",
-    //   image: "/portfolio2024.png?height=600&width=800",
-    //   tags: ["React.js", "TypeScript", "Tailwind CSS", "Vite"],
-    //   liveUrl: "https://jolaoluwa-portfolio-2024.vercel.app",
-    //   githubUrl: "https://github.com/Jolaoluwa17/Portfolio_",
-    //   longDescription:
-    //     "This portfolio website highlights my latest work, technical skills, and experience. Designed with a focus on usability and performance, it features responsive layouts, dark mode support, and easy navigation. Built using React and Tailwind CSS with Vite for fast development and optimized builds.",
-    // },
     {
       title: "Royal Gate Group",
       description:
@@ -97,17 +86,6 @@ export default function Projects() {
       longDescription:
         "This project is a web-based implementation of the classic Tic-Tac-Toe game. Developed using Next.js and React, it features smooth, responsive gameplay for two players. The interface is clean and intuitive, making it easy for users to take turns, track wins, and restart the game. It serves as a simple but fun demonstration of component-based architecture and state management in a modern React framework.",
     },
-    // {
-    //   title: "Real Estate Platform",
-    //   description:
-    //     "A property listing and management platform with search filters, virtual tours, and agent communication.",
-    //   image: "/placeholder.svg?height=600&width=800",
-    //   tags: ["Vue.js", "Django", "PostgreSQL", "Redis", "Docker"],
-    //   liveUrl: "#",
-    //   githubUrl: "#",
-    //   longDescription:
-    //     "This real estate platform connects property buyers, sellers, and agents. Features include advanced property search with filters, virtual property tours, detailed property listings with high-quality images, agent profiles and communication tools, saved favorites, and property alerts. The platform includes an admin dashboard for property management and analytics.",
-    // },
   ];
 
   const container = {

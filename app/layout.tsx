@@ -1,6 +1,6 @@
-import type React from "react"
-import "@/app/globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
+import type React from "react";
+import "@/app/globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     siteName: "Jolaoluwa Olusanya Portfolio",
     images: [
       {
-        url: "https://www.jolaoluwa.site/jolaoluwa.png",
+        url: "https://www.jolaoluwa.site/animatedImage.png",
         width: 1200,
         height: 630,
         alt: "Jolaoluwa Olusanya - Portfolio",
@@ -32,15 +32,20 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           {children}
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }

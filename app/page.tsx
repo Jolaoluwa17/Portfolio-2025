@@ -11,6 +11,7 @@ import Experience from "@/components/experience"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
 import Navbar from "@/components/navbar"
+import Testimonials from "@/components/testimonials"
 
 export default function Home() {
   const [showScrollTop, setShowScrollTop] = useState(false)
@@ -53,6 +54,10 @@ export default function Home() {
 
       <section id="projects" className="py-20">
         <Projects />
+      </section>
+
+      <section id="projects" className="py-20">
+        <Testimonials />
       </section>
 
       <section id="experience" className="py-20 bg-muted/50">
