@@ -56,9 +56,9 @@ export default function Home() {
         <Projects />
       </section>
 
-      <section id="projects" className="py-20">
+      {/* <section id="projects" className="py-20">
         <Testimonials />
-      </section>
+      </section> */}
 
       <section id="experience" className="py-20 bg-muted/50">
         <Experience />
