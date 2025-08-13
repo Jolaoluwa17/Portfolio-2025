@@ -9,8 +9,30 @@ import Link from "next/link";
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
+  const [visibleCount, setVisibleCount] = useState(6); // initial visible count
 
   const projects = [
+    {
+      title: "Rissa Bites",
+      description:
+        "A food delivery platform where users can order treats and snacks seamlessly, tailored to the client's business.",
+      image: "/rissabites.png?height=600&width=800",
+      tags: [
+        "Next.js",
+        "TypeScript",
+        "MongoDB",
+        "Node.js",
+        "Express.js",
+        "Tailwind CSS",
+        "Stripe",
+        "RTK Query",
+        "Redux",
+      ],
+      liveUrl: "https://rissabites.com",
+      githubUrl: "#",
+      longDescription:
+        "Rissa Bites is a full-stack food delivery web application built to provide a seamless ordering experience for users...",
+    },
     {
       title: "ReceiptSnap",
       description:
@@ -28,57 +50,56 @@ export default function Projects() {
       liveUrl: "https://receiptsnap.netlify.app",
       githubUrl: "#",
       longDescription:
-        "ReceiptSnap is a full-stack web application built to automate the tedious task of receipt collation. Users can upload receipt images, and the system automatically extracts relevant data using OCR technology (powered by Asprise). The platform stores all receipts in a database, provides a clean and intuitive UI for managing them, and allows users to export their data into well-formatted PDFs. With built-in email functionality via Nodemailer and Gmail integration, users can send their reports directly from the platform. A demo account is available, and an automated cleanup script ensures demo data is removed every 24 hours.",
+        "ReceiptSnap is a full-stack web application built to automate the tedious task of receipt collation...",
     },
-
     {
       title: "Focus",
       description:
-        "A modern clothing eCommerce platform offering a curated selection of fashion-forward styles for men, women, and kids.",
+        "A modern clothing eCommerce platform offering a curated selection of fashion-forward styles.",
       image: "/focus.png?height=600&width=800",
       tags: ["Next.js", "TypeScript", "shadcn", "Tailwind CSS"],
       liveUrl: "https://focus-ecommerce.netlify.app",
       githubUrl: "https://github.com/Jolaoluwa17/Focus",
       longDescription:
-        "Focus is a sleek and responsive eCommerce web application tailored for fashion retail. It allows users to browse a wide range of stylish clothing collections, add items to their cart, and securely check out. With a clean interface and seamless navigation, Focus delivers a smooth shopping experience across all devices. Built using modern tools like Next.js, TypeScript, and shadcn UI components, it combines performance with aesthetic appeal.",
+        "Focus is a sleek and responsive eCommerce web application tailored for fashion retail...",
     },
     {
       title: "Neuro",
       description:
-        "A quiz management web application that enables users to create quizzes, share links with recipients, and track detailed assessment metrics.",
+        "A quiz management web application for creating quizzes and tracking assessment metrics.",
       image: "/neuro.png?height=600&width=800",
       tags: ["Next.js", "TypeScript", "Node.js", "Express", "MongoDB"],
       liveUrl: "https://neuroquiz.netlify.app",
       githubUrl: "https://github.com/Jolaoluwa17/Neuro",
       longDescription:
-        "Neuro is an ongoing project designed to streamline quiz creation and distribution. Users can easily build custom quizzes, share them with multiple recipients via links, and monitor various metrics related to assessment performance. The app focuses on delivering insightful analytics and an intuitive user experience, built using modern web technologies.",
+        "Neuro is an ongoing project designed to streamline quiz creation and distribution...",
     },
     {
       title: "Royal Gate Group",
       description:
-        "Official website of Royal Gate Group, an international export and import company offering reliable global trade and logistics solutions.",
+        "Official website of Royal Gate Group, an international export and import company.",
       image: "/royalGate.png?height=600&width=800",
       tags: ["Next.js", "Tailwind CSS", "Vite"],
       liveUrl: "https://royalgategroup.com.ng",
       githubUrl: "#",
       longDescription:
-        "Royal Gate Group is a global export and import company dedicated to facilitating seamless international trade. The platform showcases the company's wide range of services including product sourcing, global logistics, and customs management. Built with modern web technologies, the website serves as an information hub for clients, partners, and prospects—highlighting the company’s commitment to efficiency, transparency, and global connectivity.",
+        "Royal Gate Group is a global export and import company dedicated to facilitating seamless trade...",
     },
     {
       title: "Lagos State Material Testing Laboratory",
       description:
-        "Official mobile platform for Lagos State Material Testing Laboratory, offering access to testing services, reports, and regulatory information.",
+        "Official mobile platform for Lagos State Material Testing Laboratory.",
       image: "/lstml.png?height=600&width=800",
       tags: ["Next.js", "Tailwind CSS", "Node.js", "Express"],
       liveUrl: "https://www.lsmtl.lg.gov.ng",
       githubUrl: "#",
       longDescription:
-        "The Lagos State Material Testing Laboratory (LSMTL) mobile application provides a user-friendly platform for accessing construction material testing services, viewing test reports, and staying updated on regulatory standards. Built with React Native and powered by Firebase and Node.js, the app ensures easy scheduling of tests, secure data access, and real-time updates. It supports transparency and efficiency in quality assurance for building and infrastructure projects across Lagos State.",
+        "The Lagos State Material Testing Laboratory mobile app provides access to testing services...",
     },
     {
       title: "Tic-Tac-Toe",
       description:
-        "A classic single and two-player Tic-Tac-Toe game built with Next.js, featuring interactive gameplay and a sleek UI.",
+        "A classic single and two-player Tic-Tac-Toe game built with Next.js.",
       image: "/tictactoe.png?height=600&width=800",
       tags: ["Next.js", "CSS"],
       liveUrl: "https://tic-tac-toe-pi-gold.vercel.app",
@@ -90,12 +111,7 @@ export default function Projects() {
 
   const container = {
     hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
+    show: { opacity: 1, transition: { staggerChildren: 0.1 } },
   };
 
   const item = {
@@ -103,8 +119,16 @@ export default function Projects() {
     show: { opacity: 1, y: 0 },
   };
 
+  const handleSeeMore = () => {
+    setVisibleCount((prev) => Math.min(prev + 3, projects.length));
+  };
+
+  // Get the projects to display
+  const displayedProjects = projects.slice(0, visibleCount);
+
   return (
     <div className="container mx-auto px-4">
+      {/* Section Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -120,16 +144,18 @@ export default function Projects() {
         </p>
       </motion.div>
 
+      {/* Project Grid */}
       <motion.div
         variants={container}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center"
+        key={visibleCount} // Force re-render when visibleCount changes
       >
-        {projects.map((project, index) => (
+        {displayedProjects.map((project, index) => (
           <motion.div
-            key={index}
+            key={`project-${index}`} // Use a more reliable key
             variants={item}
             className="bg-card rounded-xl overflow-hidden border shadow-sm hover:shadow-md transition-all group"
           >
@@ -179,7 +205,6 @@ export default function Projects() {
               <p className="text-muted-foreground mb-4">
                 {project.description}
               </p>
-
               <div className="flex flex-wrap gap-2 mt-4">
                 {project.tags.map((tag, tagIndex) => (
                   <Badge key={tagIndex} variant="secondary">
@@ -191,6 +216,15 @@ export default function Projects() {
           </motion.div>
         ))}
       </motion.div>
+
+      {/* See More Button */}
+      {visibleCount < projects.length && (
+        <div className="flex justify-center mt-8">
+          <Button onClick={handleSeeMore} variant="outline">
+            See More ({projects.length - visibleCount} remaining)
+          </Button>
+        </div>
+      )}
 
       {/* Project Modal */}
       <AnimatePresence>
@@ -211,8 +245,11 @@ export default function Projects() {
             >
               <div className="relative aspect-video">
                 <img
-                  src={projects[selectedProject].image || "/placeholder.svg"}
-                  alt={projects[selectedProject].title}
+                  src={
+                    displayedProjects[selectedProject]?.image ||
+                    "/placeholder.svg"
+                  }
+                  alt={displayedProjects[selectedProject]?.title || "Project"}
                   className="object-cover w-full h-full rounded-t-xl"
                 />
                 <Button
@@ -227,24 +264,24 @@ export default function Projects() {
 
               <div className="p-6">
                 <h3 className="text-2xl font-bold mb-2">
-                  {projects[selectedProject].title}
+                  {displayedProjects[selectedProject]?.title}
                 </h3>
                 <p className="text-muted-foreground mb-6">
-                  {projects[selectedProject].longDescription}
+                  {displayedProjects[selectedProject]?.longDescription}
                 </p>
-
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {projects[selectedProject].tags.map((tag, tagIndex) => (
-                    <Badge key={tagIndex} variant="secondary">
-                      {tag}
-                    </Badge>
-                  ))}
+                  {displayedProjects[selectedProject]?.tags.map(
+                    (tag, tagIndex) => (
+                      <Badge key={tagIndex} variant="secondary">
+                        {tag}
+                      </Badge>
+                    )
+                  )}
                 </div>
-
                 <div className="flex gap-4">
                   <Button asChild>
                     <Link
-                      href={projects[selectedProject].liveUrl}
+                      href={displayedProjects[selectedProject]?.liveUrl || "#"}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -253,7 +290,9 @@ export default function Projects() {
                   </Button>
                   <Button asChild variant="outline">
                     <Link
-                      href={projects[selectedProject].githubUrl}
+                      href={
+                        displayedProjects[selectedProject]?.githubUrl || "#"
+                      }
                       target="_blank"
                       rel="noopener noreferrer"
                     >

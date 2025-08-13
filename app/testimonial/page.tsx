@@ -26,7 +26,9 @@ import {
   Upload,
   X,
   ExternalLink,
+  AlertCircle,
 } from "lucide-react";
+import { usePostTestimonialsMutation } from "@/api/features/testimonials/testimonialsSlice";
 
 interface FormData {
   name: string;
@@ -38,7 +40,7 @@ interface FormData {
   rating: number;
   shortQuote: string;
   fullTestimonial: string;
-  profileImage: string | null;
+  profileImage: File | null;
 }
 
 export default function TestimonialsForm() {
@@ -56,9 +58,12 @@ export default function TestimonialsForm() {
   });
 
   const [hoveredRating, setHoveredRating] = useState(0);
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [dragActive, setDragActive] = useState(false);
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
+
+  const [postTestimonial, { isLoading: isSubmitting, error: submitError }] =
+    usePostTestimonialsMutation();
 
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -79,13 +84,16 @@ export default function TestimonialsForm() {
 
   const handleImageUpload = (file: File) => {
     if (file && file.type.startsWith("image/")) {
+      setFormData((prev) => ({
+        ...prev,
+        profileImage: file,
+      }));
+
+      // Create preview URL
       const reader = new FileReader();
       reader.onload = (e) => {
         if (e.target?.result) {
-          setFormData((prev) => ({
-            ...prev,
-            profileImage: e.target!.result as string,
-          }));
+          setImagePreview(e.target.result as string);
         }
       };
       reader.readAsDataURL(file);
@@ -112,15 +120,45 @@ export default function TestimonialsForm() {
     }
   };
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const removeImage = () => {
+    setFormData((prev) => ({
+      ...prev,
+      profileImage: null,
+    }));
+    setImagePreview(null);
+  };
+
+  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    try {
+      // Create FormData for multipart/form-data submission
+      const submitData = new FormData();
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+      // Map form fields to your backend schema
+      submitData.append("fullName", formData.name);
+      submitData.append("email", formData.email);
+      submitData.append("role", formData.role);
+      submitData.append("companyName", formData.company);
+      submitData.append("projectName", formData.project);
+      submitData.append("projectUrl", formData.projectUrl || "");
+      submitData.append("rating", formData.rating.toString());
+      submitData.append("shortQuote", formData.shortQuote);
+      submitData.append("testimonials", formData.fullTestimonial);
+
+      // Add profile image if exists
+      if (formData.profileImage) {
+        submitData.append("profileImg", formData.profileImage);
+      }
+
+      // Submit the testimonial
+      await postTestimonial(submitData).unwrap();
+
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error("Failed to submit testimonial:", error);
+      // Error will be handled by the error state from the mutation
+    }
   };
 
   const renderStars = (interactive = false) => {
@@ -173,9 +211,17 @@ export default function TestimonialsForm() {
               <h3 className="font-semibold mb-4">Your Testimonial Preview:</h3>
               <div className="text-left">
                 <div className="flex items-center mb-3">
-                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-semibold mr-3">
-                    {formData.name.charAt(0).toUpperCase()}
-                  </div>
+                  {imagePreview ? (
+                    <img
+                      src={imagePreview}
+                      alt="Profile"
+                      className="w-12 h-12 rounded-full object-cover mr-3"
+                    />
+                  ) : (
+                    <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-semibold mr-3">
+                      {formData.name.charAt(0).toUpperCase()}
+                    </div>
+                  )}
                   <div>
                     <p className="font-semibold">{formData.name}</p>
                     <p className="text-sm text-muted-foreground">
@@ -250,7 +296,19 @@ export default function TestimonialsForm() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Error Message */}
+              {submitError && (
+                <div className="mb-6 p-4 border border-red-200 rounded-lg bg-red-50 dark:bg-red-900/20 dark:border-red-800">
+                  <div className="flex items-center gap-2">
+                    <AlertCircle className="h-5 w-5 text-red-500" />
+                    <p className="text-red-700 dark:text-red-300">
+                      Failed to submit testimonial. Please try again.
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              <div className="space-y-6">
                 {/* Personal Information */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
@@ -335,10 +393,10 @@ export default function TestimonialsForm() {
                     onDragOver={handleDrag}
                     onDrop={handleDrop}
                   >
-                    {formData.profileImage ? (
+                    {imagePreview ? (
                       <div className="flex items-center justify-center gap-4">
                         <img
-                          src={formData.profileImage}
+                          src={imagePreview}
                           alt="Profile preview"
                           className="w-16 h-16 rounded-full object-cover"
                         />
@@ -346,12 +404,7 @@ export default function TestimonialsForm() {
                           type="button"
                           variant="outline"
                           size="sm"
-                          onClick={() =>
-                            setFormData((prev) => ({
-                              ...prev,
-                              profileImage: null,
-                            }))
-                          }
+                          onClick={removeImage}
                         >
                           <X className="h-4 w-4 mr-2" />
                           Remove
@@ -456,7 +509,7 @@ export default function TestimonialsForm() {
 
                 {/* Submit Button */}
                 <Button
-                  type="submit"
+                  onClick={handleSubmit}
                   size="lg"
                   className="w-full"
                   disabled={isSubmitting || formData.rating === 0}
@@ -473,7 +526,7 @@ export default function TestimonialsForm() {
                     </>
                   )}
                 </Button>
-              </form>
+              </div>
             </CardContent>
           </Card>
         </motion.div>
