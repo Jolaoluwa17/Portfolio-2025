@@ -31,7 +31,7 @@ export default function Projects() {
       liveUrl: "https://rissabites.com",
       githubUrl: "#",
       longDescription:
-        "Rissa Bites is a full-stack food delivery web application built to provide a seamless ordering experience for users...",
+        "Rissa Bites is a full-stack food delivery web application built to provide a seamless ordering experience for users. Customers can browse a wide range of treats and snacks, add items to their cart, and place orders effortlessly. The platform integrates a secure Stripe payment gateway, ensuring smooth and reliable transactions. With a responsive and modern UI powered by Tailwind CSS, users can enjoy a fast and intuitive experience across all devices. On the backend, Node.js, Express.js, and MongoDB handle data management and scalability, while Redux and RTK Query streamline state management and API consumption on the frontend. Designed with both performance and user satisfaction in mind, Rissa Bites offers an efficient solution for food ordering, tailored to the client’s business needs.",
     },
     {
       title: "ReceiptSnap",
@@ -50,7 +50,7 @@ export default function Projects() {
       liveUrl: "https://receiptsnap.netlify.app",
       githubUrl: "#",
       longDescription:
-        "ReceiptSnap is a full-stack web application built to automate the tedious task of receipt collation...",
+        "ReceiptSnap is a full-stack web application built to automate the tedious task of receipt collation. Users can upload images of receipts, which are processed using OCR (Optical Character Recognition) to extract key purchase details such as items, amounts, and dates. The extracted data is then organized and stored in MongoDB, allowing users to manage and track their expenses with ease. To further enhance productivity, the platform integrates Nodemailer, enabling users to receive structured purchase summaries directly in their email. With a React and Tailwind CSS frontend, ReceiptSnap delivers a clean, responsive, and user-friendly interface, while the Node.js and Express backend ensures scalability and efficient data processing. The tool simplifies expense tracking by turning paper clutter into digital insights seamlessly.",
     },
     {
       title: "Focus",
@@ -61,7 +61,7 @@ export default function Projects() {
       liveUrl: "https://focus-ecommerce.netlify.app",
       githubUrl: "https://github.com/Jolaoluwa17/Focus",
       longDescription:
-        "Focus is a sleek and responsive eCommerce web application tailored for fashion retail...",
+        "Focus is a sleek and responsive eCommerce web application tailored for fashion retail. It offers users a modern shopping experience with a curated collection of clothing and accessories, designed to reflect contemporary style trends. Built with Next.js and TypeScript, the platform ensures high performance, scalability, and a seamless user experience. The UI is powered by Tailwind CSS and shadcn components, providing a clean, minimal, and highly customizable design system. With intuitive navigation, product browsing, and a mobile-first layout, Focus delivers a smooth and engaging online shopping journey for fashion-forward users.",
     },
     {
       title: "Neuro",
@@ -72,7 +72,7 @@ export default function Projects() {
       liveUrl: "https://neuroquiz.netlify.app",
       githubUrl: "https://github.com/Jolaoluwa17/Neuro",
       longDescription:
-        "Neuro is an ongoing project designed to streamline quiz creation and distribution...",
+        "Neuro is an ongoing project designed to streamline quiz creation, distribution, and performance tracking. The platform enables instructors or administrators to create customizable quizzes, assign them to participants, and monitor results in real time. With a robust backend built on Node.js, Express, and MongoDB, Neuro ensures efficient data storage and management of quiz content and assessment metrics. On the frontend, Next.js and TypeScript power a responsive and intuitive interface that allows users to take quizzes seamlessly across devices. By combining ease of use with insightful analytics, Neuro aims to provide an effective solution for both educators and learners to evaluate knowledge and track progress.",
     },
     {
       title: "Royal Gate Group",
@@ -83,7 +83,7 @@ export default function Projects() {
       liveUrl: "https://royalgategroup.com.ng",
       githubUrl: "#",
       longDescription:
-        "Royal Gate Group is a global export and import company dedicated to facilitating seamless trade...",
+        "Royal Gate Group is a global export and import company dedicated to facilitating seamless international trade across diverse industries. The official website serves as a professional digital presence, showcasing the company’s services, core values, and global reach. Built with Next.js and styled using Tailwind CSS, the platform is fast, responsive, and optimized for accessibility across devices. Leveraging Vite for efficient development and build processes, the site ensures a smooth user experience while reflecting the brand’s commitment to reliability and excellence. Designed with a clean and modern aesthetic, the website enhances credibility and provides potential clients and partners with easy access to essential information about Royal Gate Group.",
     },
     {
       title: "Lagos State Material Testing Laboratory",
@@ -94,7 +94,7 @@ export default function Projects() {
       liveUrl: "https://www.lsmtl.lg.gov.ng",
       githubUrl: "#",
       longDescription:
-        "The Lagos State Material Testing Laboratory mobile app provides access to testing services...",
+        "The Lagos State Material Testing Laboratory (LSMTL) mobile platform provides citizens and organizations with convenient access to a wide range of building and construction material testing services. Designed to promote structural integrity and safety, the platform allows users to explore available services, submit requests, and access vital information about testing standards and procedures. Built with Next.js and Tailwind CSS, the frontend ensures a modern, responsive, and user-friendly interface, while Node.js and Express power a reliable backend for handling requests efficiently. By digitizing service access, LSMTL enhances transparency, efficiency, and public trust in Lagos State’s construction oversight efforts.",
     },
     {
       title: "Tic-Tac-Toe",
