@@ -12,6 +12,7 @@ import Contact from "@/components/contact"
 import Footer from "@/components/footer"
 import Navbar from "@/components/navbar"
 import Testimonials from "@/components/testimonials"
+import Chatbot from "@/components/portfolioChatbot"
 
 export default function Home() {
   const [showScrollTop, setShowScrollTop] = useState(false)
@@ -85,6 +86,8 @@ export default function Home() {
           </motion.button>
         )}
       </AnimatePresence>
+
+      {/* <Chatbot /> */}
     </main>
   )
 }
