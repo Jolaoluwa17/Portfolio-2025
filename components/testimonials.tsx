@@ -324,7 +324,7 @@ export default function Testimonials() {
                     {selected?.projectUrl ? (
                       <a
                         href={
-                          selected.websiteUrl?.startsWith("http")
+                          selected.projectUrl?.startsWith("https://")
                             ? selected.projectUrl
                             : `https://${selected.projectUrl}`
                         }
