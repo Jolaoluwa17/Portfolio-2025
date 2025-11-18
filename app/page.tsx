@@ -87,7 +87,7 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* <Chatbot /> */}
+      <Chatbot />
     </main>
   )
 }
