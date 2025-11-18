@@ -10,8 +10,33 @@ export default function Hero() {
     <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-72 h-72 bg-secondary/10 rounded-full blur-3xl" />
+        <motion.div
+          animate={{
+            y: [0, -30, 0],
+            x: [0, 20, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            y: [0, 30, 0],
+            x: [0, -20, 0],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+          className="absolute bottom-20 right-10 w-72 h-72 bg-secondary/10 rounded-full blur-3xl"
+        />
       </div>
 
       <div className="container mx-auto px-4 z-10 mt-[60px]">
@@ -111,14 +136,37 @@ export default function Hero() {
             transition={{ duration: 0.5 }}
             className="flex justify-center"
           >
-            <div className="relative w-82 h-82 md:w-96 md:h-96">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 to-secondary/20 animate-pulse" />
-              <img
+            <motion.div
+              animate={{
+                y: [0, -20, 0],
+                rotate: [0, 5, -5, 0],
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="relative w-82 h-82 md:w-96 md:h-96"
+            >
+              <motion.div
+                animate={{
+                  scale: [1, 1.1, 1],
+                  opacity: [0.3, 0.5, 0.3],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 to-secondary/20"
+              />
+              <motion.img
                 src="/jolaoluwa.jpg?height=400&width=400"
                 alt="Developer Portrait"
-                className="rounded-full object-cover w-full h-full p-2"
+                whileHover={{ scale: 1.05, rotate: 5 }}
+                className="rounded-full object-cover w-full h-full p-2 relative z-10"
               />
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

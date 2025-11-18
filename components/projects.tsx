@@ -163,6 +163,11 @@ export default function Projects() {
           <motion.div
             key={`project-${index}`} // Use a more reliable key
             variants={item}
+            initial={{ opacity: 0, y: 50, rotateX: -10 }}
+            whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: index * 0.1 }}
+            whileHover={{ y: -10, scale: 1.02, rotateX: 5 }}
             className="bg-card rounded-xl overflow-hidden border shadow-sm hover:shadow-md transition-all group"
           >
             <div className="relative overflow-hidden aspect-video">
@@ -228,13 +233,26 @@ export default function Projects() {
               <p className="text-muted-foreground mb-4">
                 {project.description}
               </p>
-              <div className="flex flex-wrap gap-2 mt-4">
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ staggerChildren: 0.05 }}
+                className="flex flex-wrap gap-2 mt-4"
+              >
                 {project.tags.map((tag, tagIndex) => (
-                  <Badge key={tagIndex} variant="secondary">
-                    {tag}
-                  </Badge>
+                  <motion.div
+                    key={tagIndex}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: tagIndex * 0.05 }}
+                    whileHover={{ scale: 1.1, rotate: 2 }}
+                  >
+                    <Badge variant="secondary">{tag}</Badge>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         ))}
@@ -242,11 +260,22 @@ export default function Projects() {
 
       {/* See More Button */}
       {visibleCount < projects.length && (
-        <div className="flex justify-center mt-8">
-          <Button onClick={handleSeeMore} variant="outline">
-            See More ({projects.length - visibleCount} remaining)
-          </Button>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="flex justify-center mt-8"
+        >
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Button onClick={handleSeeMore} variant="outline">
+              See More
+            </Button>
+          </motion.div>
+        </motion.div>
       )}
 
       {/* Project Modal */}

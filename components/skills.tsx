@@ -105,6 +105,16 @@ export default function Skills() {
           <motion.div
             key={skill.category}
             variants={item}
+            initial={{ opacity: 0, y: 30, rotateY: -20 }}
+            whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            whileHover={{ 
+              scale: 1.05, 
+              y: -8, 
+              rotateY: 5,
+              boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+            }}
             className="bg-card rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow border"
           >
             <div className="flex items-center mb-4">
@@ -114,14 +124,35 @@ export default function Skills() {
               <h3 className="text-xl font-bold">{skill.category}</h3>
             </div>
 
-            <ul className="space-y-2">
+            <motion.ul
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ staggerChildren: 0.1 }}
+              className="space-y-2"
+            >
               {skill.items.map((item, itemIndex) => (
-                <li key={itemIndex} className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-primary mr-2" />
+                <motion.li
+                  key={itemIndex}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: itemIndex * 0.05 }}
+                  whileHover={{ x: 5, scale: 1.02 }}
+                  className="flex items-center"
+                >
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: itemIndex * 0.05 + 0.2 }}
+                    whileHover={{ scale: 1.3, rotate: 180 }}
+                    className="w-2 h-2 rounded-full bg-primary mr-2"
+                  />
                   <span className="text-muted-foreground">{item}</span>
-                </li>
+                </motion.li>
               ))}
-            </ul>
+            </motion.ul>
           </motion.div>
         ))}
       </motion.div>

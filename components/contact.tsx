@@ -120,41 +120,41 @@ export default function Contact() {
             </p>
           </div>
 
-          <div className="space-y-6">
-            <div className="flex items-start">
-              <div className="p-3 rounded-lg bg-primary/10 text-primary mr-4">
-                <MapPin className="h-6 w-6" />
-              </div>
-              <div>
-                <h4 className="font-medium">Location</h4>
-                <p className="text-muted-foreground">
-                  Plymouth, United Kingdom
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start">
-              <div className="p-3 rounded-lg bg-primary/10 text-primary mr-4">
-                <Mail className="h-6 w-6" />
-              </div>
-              <div>
-                <h4 className="font-medium">Email</h4>
-                <p className="text-muted-foreground">
-                  olusanyajolaoluwa@gmail.com
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start">
-              <div className="p-3 rounded-lg bg-primary/10 text-primary mr-4">
-                <Phone className="h-6 w-6" />
-              </div>
-              <div>
-                <h4 className="font-medium">Phone</h4>
-                <p className="text-muted-foreground">(+44) 7440176901</p>
-              </div>
-            </div>
-          </div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ staggerChildren: 0.2 }}
+            className="space-y-6"
+          >
+            {[
+              { icon: MapPin, label: "Location", value: "Plymouth, United Kingdom" },
+              { icon: Mail, label: "Email", value: "olusanyajolaoluwa@gmail.com" },
+              { icon: Phone, label: "Phone", value: "(+44) 7440176901" },
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                whileHover={{ x: 10, scale: 1.02 }}
+                className="flex items-start"
+              >
+                <motion.div
+                  whileHover={{ rotate: 360, scale: 1.1 }}
+                  transition={{ duration: 0.5 }}
+                  className="p-3 rounded-lg bg-primary/10 text-primary mr-4"
+                >
+                  <item.icon className="h-6 w-6" />
+                </motion.div>
+                <div>
+                  <h4 className="font-medium">{item.label}</h4>
+                  <p className="text-muted-foreground">{item.value}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
 
           <div className="pt-6">
             <h4 className="font-medium mb-4">Follow Me</h4>
@@ -266,9 +266,29 @@ export default function Contact() {
                 </span>
               </motion.div>
             ) : ( */}
-            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
+            <motion.form
+              ref={formRef}
+              onSubmit={handleSubmit}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ staggerChildren: 0.1 }}
+              className="space-y-6"
+            >
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="grid grid-cols-1 md:grid-cols-2 gap-6"
+              >
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4 }}
+                  className="space-y-2"
+                >
                   <label htmlFor="name" className="text-sm font-medium">
                     Your Name
                   </label>
@@ -280,8 +300,14 @@ export default function Contact() {
                     placeholder="John Doe"
                     required
                   />
-                </div>
-                <div className="space-y-2">
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4 }}
+                  className="space-y-2"
+                >
                   <label htmlFor="email" className="text-sm font-medium">
                     Your Email
                   </label>
@@ -294,10 +320,16 @@ export default function Contact() {
                     placeholder="john@example.com"
                     required
                   />
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
 
-              <div className="space-y-2">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.1 }}
+                className="space-y-2"
+              >
                 <label htmlFor="subject" className="text-sm font-medium">
                   Subject
                 </label>
@@ -309,9 +341,15 @@ export default function Contact() {
                   placeholder="Project Inquiry"
                   required
                 />
-              </div>
+              </motion.div>
 
-              <div className="space-y-2">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.2 }}
+                className="space-y-2"
+              >
                 <label htmlFor="message" className="text-sm font-medium">
                   Your Message
                 </label>
@@ -324,13 +362,21 @@ export default function Contact() {
                   rows={6}
                   required
                 />
-              </div>
+              </motion.div>
 
-              <Button
-                type="submit"
-                className="w-full md:w-auto"
-                disabled={isSubmitting}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.3 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
+                <Button
+                  type="submit"
+                  className="w-full md:w-auto"
+                  disabled={isSubmitting}
+                >
                 {isSubmitting ? (
                   <span className="flex items-center">
                     <svg
@@ -361,7 +407,8 @@ export default function Contact() {
                   </span>
                 )}
               </Button>
-            </form>
+              </motion.div>
+            </motion.form>
             {/* )} */}
           </div>
         </motion.div>

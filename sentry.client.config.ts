@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import * as Sentry from "@sentry/nextjs";
 
 Sentry.init({

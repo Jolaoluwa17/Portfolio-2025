@@ -120,9 +120,21 @@ export default function Experience() {
               <motion.div
                 key={index}
                 variants={item}
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                whileHover={{ x: 10, scale: 1.02 }}
                 className="mb-12 relative"
               >
-                <div className="absolute w-4 h-4 bg-primary rounded-full -left-[2.55rem] top-0" />
+                <motion.div
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.3 }}
+                  whileHover={{ scale: 1.5, rotate: 180 }}
+                  className="absolute w-4 h-4 bg-primary rounded-full -left-[2.55rem] top-0"
+                />
                 <div className="bg-card rounded-lg p-6 shadow-sm border">
                   <h4 className="text-xl font-bold">{job.title}</h4>
                   <div className="flex flex-wrap items-center text-muted-foreground mt-1 mb-3">
@@ -169,9 +181,21 @@ export default function Experience() {
               <motion.div
                 key={index}
                 variants={item}
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                whileHover={{ x: 10, scale: 1.02 }}
                 className="mb-12 relative"
               >
-                <div className="absolute w-4 h-4 bg-primary rounded-full -left-[2.55rem] top-0" />
+                <motion.div
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.3 }}
+                  whileHover={{ scale: 1.5, rotate: 180 }}
+                  className="absolute w-4 h-4 bg-primary rounded-full -left-[2.55rem] top-0"
+                />
                 <div className="bg-card rounded-lg p-6 shadow-sm border">
                   <h4 className="text-xl font-bold">{edu.degree}</h4>
                   <div className="flex flex-wrap items-center text-muted-foreground mt-1 mb-3">
