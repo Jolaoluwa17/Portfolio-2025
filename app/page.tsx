@@ -78,9 +78,10 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
             onClick={scrollToTop}
-            className="fixed bottom-8 right-8 p-3 rounded-full bg-primary text-primary-foreground shadow-lg z-50"
+            className="fixed bottom-4 left-4 sm:bottom-8 sm:left-8 p-3 rounded-full bg-primary text-primary-foreground shadow-lg z-50"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
+            aria-label="Scroll to top"
           >
             <ChevronUp className="h-6 w-6" />
           </motion.button>
