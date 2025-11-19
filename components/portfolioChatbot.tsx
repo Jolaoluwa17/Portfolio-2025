@@ -131,7 +131,7 @@ export default function Chatbot() {
     <>
       {/* Chat Toggle Button */}
       <motion.div
-        className="fixed bottom-6 right-6 z-50"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50"
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ delay: 1, type: "spring", stiffness: 260, damping: 20 }}
@@ -140,7 +140,8 @@ export default function Chatbot() {
           onClick={() => setIsOpen(!isOpen)}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className="rounded-full w-14 h-14 bg-primary text-primary-foreground shadow-lg hover:shadow-xl transition-all flex items-center justify-center"
+          className="rounded-full w-12 h-12 sm:w-14 sm:h-14 bg-primary text-primary-foreground shadow-lg hover:shadow-xl transition-all flex items-center justify-center touch-manipulation"
+          aria-label={isOpen ? "Close chat" : "Open chat"}
         >
           <AnimatePresence mode="wait">
             {isOpen ? (
@@ -151,7 +152,7 @@ export default function Chatbot() {
                 exit={{ rotate: 90, opacity: 0 }}
                 transition={{ duration: 0.2 }}
               >
-                <X className="h-6 w-6" />
+                <X className="h-5 w-5 sm:h-6 sm:w-6" />
               </motion.div>
             ) : (
               <motion.div
@@ -161,7 +162,7 @@ export default function Chatbot() {
                 exit={{ rotate: -90, opacity: 0 }}
                 transition={{ duration: 0.2 }}
               >
-                <MessageCircle className="h-6 w-6" />
+                <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6" />
               </motion.div>
             )}
           </AnimatePresence>
@@ -171,132 +172,150 @@ export default function Chatbot() {
       {/* Chat Window */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed bottom-24 right-6 w-[90vw] max-w-md h-[600px] max-h-[80vh] bg-background border rounded-2xl shadow-2xl z-40 flex flex-col overflow-hidden backdrop-blur-sm"
-          >
-            {/* Header */}
-            <div className="bg-primary text-primary-foreground p-4 flex items-center justify-between border-b border-primary/20">
-              <div className="flex items-center gap-3">
-                <div className="relative">
-                  <div className="w-10 h-10 bg-primary-foreground/20 rounded-full flex items-center justify-center">
-                    <Bot className="h-5 w-5" />
+          <>
+            {/* Backdrop for mobile */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+              className="fixed inset-0 bg-black/20 backdrop-blur-sm z-30 sm:hidden"
+            />
+            <motion.div
+              initial={{ opacity: 0, y: 20, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 20, scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="fixed bottom-0 left-0 right-0 sm:bottom-24 sm:left-auto sm:right-6 sm:w-[90vw] sm:max-w-md w-full h-[85vh] sm:h-[600px] sm:max-h-[80vh] bg-background border sm:rounded-2xl rounded-t-2xl shadow-2xl z-40 flex flex-col overflow-hidden backdrop-blur-sm"
+            >
+              {/* Header */}
+              <div className="bg-primary text-primary-foreground p-3 sm:p-4 flex items-center justify-between border-b border-primary/20 flex-shrink-0">
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <div className="relative">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-primary-foreground/20 rounded-full flex items-center justify-center">
+                      <Bot className="h-4 w-4 sm:h-5 sm:w-5" />
+                    </div>
+                    <motion.div
+                      className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-green-400 rounded-full border-2 border-primary"
+                      animate={{ scale: [1, 1.2, 1] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    />
                   </div>
-                  <motion.div
-                    className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-green-400 rounded-full border-2 border-primary"
-                    animate={{ scale: [1, 1.2, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  />
+                  <div>
+                    <h3 className="font-semibold text-xs sm:text-sm">Portfolio Assistant</h3>
+                    <p className="text-[10px] sm:text-xs opacity-90">Online now</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-semibold text-sm">Portfolio Assistant</h3>
-                  <p className="text-xs opacity-90">Online now</p>
-                </div>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="sm:hidden p-1.5 rounded-lg hover:bg-primary-foreground/10 transition-colors touch-manipulation"
+                  aria-label="Close chat"
+                >
+                  <X className="h-5 w-5" />
+                </button>
               </div>
-            </div>
 
-            {/* Messages */}
-            <div className="flex-1 p-4 overflow-y-auto space-y-4 chatbot-scrollbar">
-              <AnimatePresence>
-                {messages.map((message) => (
-                  <motion.div
-                    key={message.id}
-                    variants={fadeInUp}
-                    initial="initial"
-                    animate="animate"
-                    exit="exit"
-                    className={`flex ${
-                      message.isBot ? "justify-start" : "justify-end"
-                    }`}
-                  >
-                    <div
-                      className={`max-w-[85%] rounded-2xl px-4 py-3 ${
-                        message.isBot
-                          ? "bg-muted text-foreground rounded-tl-sm"
-                          : "bg-primary text-primary-foreground rounded-tr-sm"
+              {/* Messages */}
+              <div className="flex-1 p-3 sm:p-4 overflow-y-auto space-y-3 sm:space-y-4 chatbot-scrollbar min-h-0">
+                <AnimatePresence>
+                  {messages.map((message) => (
+                    <motion.div
+                      key={message.id}
+                      variants={fadeInUp}
+                      initial="initial"
+                      animate="animate"
+                      exit="exit"
+                      className={`flex ${
+                        message.isBot ? "justify-start" : "justify-end"
                       }`}
                     >
-                      <div className="flex items-start gap-2.5">
-                        {message.isBot ? (
-                          <Bot className="h-4 w-4 mt-0.5 flex-shrink-0 text-primary" />
-                        ) : (
-                          <User className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                        )}
-                        <p className="text-sm leading-relaxed break-words">
-                          {message.text}
-                        </p>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </AnimatePresence>
-
-              {/* Typing Indicator */}
-              <AnimatePresence>
-                {isTyping && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    className="flex justify-start"
-                  >
-                    <div className="bg-muted text-foreground rounded-2xl rounded-tl-sm px-4 py-3 max-w-[85%]">
-                      <div className="flex items-center gap-2.5">
-                        <Bot className="h-4 w-4 text-primary" />
-                        <div className="flex space-x-1.5">
-                          {[0, 1, 2].map((i) => (
-                            <motion.div
-                              key={i}
-                              className="w-2 h-2 bg-primary rounded-full"
-                              animate={{ opacity: [0.4, 1, 0.4], y: [0, -4, 0] }}
-                              transition={{
-                                duration: 1.4,
-                                repeat: Infinity,
-                                delay: i * 0.2,
-                              }}
-                            />
-                          ))}
+                      <div
+                        className={`max-w-[85%] sm:max-w-[85%] rounded-2xl px-3 py-2 sm:px-4 sm:py-3 ${
+                          message.isBot
+                            ? "bg-muted text-foreground rounded-tl-sm"
+                            : "bg-primary text-primary-foreground rounded-tr-sm"
+                        }`}
+                      >
+                        <div className="flex items-start gap-2 sm:gap-2.5">
+                          {message.isBot ? (
+                            <Bot className="h-3.5 w-3.5 sm:h-4 sm:w-4 mt-0.5 flex-shrink-0 text-primary" />
+                          ) : (
+                            <User className="h-3.5 w-3.5 sm:h-4 sm:w-4 mt-0.5 flex-shrink-0" />
+                          )}
+                          <p className="text-xs sm:text-sm leading-relaxed break-words">
+                            {message.text}
+                          </p>
                         </div>
                       </div>
-                    </div>
-                  </motion.div>
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
+
+                {/* Typing Indicator */}
+                <AnimatePresence>
+                  {isTyping && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      className="flex justify-start"
+                    >
+                      <div className="bg-muted text-foreground rounded-2xl rounded-tl-sm px-3 py-2 sm:px-4 sm:py-3 max-w-[85%]">
+                        <div className="flex items-center gap-2 sm:gap-2.5">
+                          <Bot className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary" />
+                          <div className="flex space-x-1 sm:space-x-1.5">
+                            {[0, 1, 2].map((i) => (
+                              <motion.div
+                                key={i}
+                                className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary rounded-full"
+                                animate={{ opacity: [0.4, 1, 0.4], y: [0, -4, 0] }}
+                                transition={{
+                                  duration: 1.4,
+                                  repeat: Infinity,
+                                  delay: i * 0.2,
+                                }}
+                              />
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                {errorMsg && (
+                  <div className="text-[10px] sm:text-xs text-red-500/90 px-1">{errorMsg}</div>
                 )}
-              </AnimatePresence>
 
-              {errorMsg && (
-                <div className="text-xs text-red-500/90 px-1">{errorMsg}</div>
-              )}
-
-              <div ref={messagesEndRef} />
-            </div>
-
-            {/* Input */}
-            <div className="p-4 border-t bg-muted/50">
-              <div className="flex gap-2">
-                <input
-                  type="text"
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  onKeyPress={handleKeyPress}
-                  placeholder="Ask me about Jolaoluwa..."
-                  className="flex-1 px-4 py-2.5 text-sm bg-background border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                  disabled={isTyping}
-                />
-                <motion.button
-                  onClick={handleSendMessage}
-                  disabled={!inputValue.trim() || isTyping}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-4 py-2.5 bg-primary text-primary-foreground rounded-xl hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
-                >
-                  <Send className="h-4 w-4" />
-                </motion.button>
+                <div ref={messagesEndRef} />
               </div>
-            </div>
-          </motion.div>
+
+              {/* Input */}
+              <div className="p-3 sm:p-4 border-t bg-muted/50 flex-shrink-0">
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    onKeyPress={handleKeyPress}
+                    placeholder="Ask me about Jolaoluwa..."
+                    className="flex-1 px-3 py-2 sm:px-4 sm:py-2.5 text-xs sm:text-sm bg-background border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation"
+                    disabled={isTyping}
+                  />
+                  <motion.button
+                    onClick={handleSendMessage}
+                    disabled={!inputValue.trim() || isTyping}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-3 py-2 sm:px-4 sm:py-2.5 bg-primary text-primary-foreground rounded-xl hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center min-w-[44px] touch-manipulation"
+                    aria-label="Send message"
+                  >
+                    <Send className="h-4 w-4" />
+                  </motion.button>
+                </div>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>

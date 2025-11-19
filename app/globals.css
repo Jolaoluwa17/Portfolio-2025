@@ -91,7 +91,13 @@
 
 /* Custom scrollbar for chatbot */
 .chatbot-scrollbar::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
+}
+
+@media (min-width: 640px) {
+  .chatbot-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
 }
 
 .chatbot-scrollbar::-webkit-scrollbar-track {
@@ -100,7 +106,13 @@
 
 .chatbot-scrollbar::-webkit-scrollbar-thumb {
   background: hsl(var(--primary) / 0.2);
-  border-radius: 3px;
+  border-radius: 2px;
+}
+
+@media (min-width: 640px) {
+  .chatbot-scrollbar::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+  }
 }
 
 .chatbot-scrollbar::-webkit-scrollbar-thumb:hover {
