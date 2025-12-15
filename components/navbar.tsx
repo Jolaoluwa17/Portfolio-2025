@@ -2,13 +2,21 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { useTheme } from "next-themes";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // Avoid hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,7 +57,7 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-6 sm:px-12 lg:px-16 xl:px-20 py-4">
         <div className="flex justify-between items-center">
           <motion.div
             initial={{ opacity: 0 }}
@@ -69,7 +77,7 @@ export default function Navbar() {
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link, index) => (
               <motion.div
                 key={link.name}
@@ -89,10 +97,48 @@ export default function Navbar() {
                 </Link>
               </motion.div>
             ))}
+            {/* Theme Toggle */}
+            {mounted && (
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+              >
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                  className="h-9 w-9"
+                  aria-label="Toggle theme"
+                >
+                  {theme === "dark" ? (
+                    <Sun className="h-5 w-5" />
+                  ) : (
+                    <Moon className="h-5 w-5" />
+                  )}
+                </Button>
+              </motion.div>
+            )}
           </div>
 
           {/* Mobile Navigation Toggle */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-2">
+            {/* Theme Toggle for Mobile */}
+            {mounted && (
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="h-9 w-9"
+                aria-label="Toggle theme"
+              >
+                {theme === "dark" ? (
+                  <Sun className="h-5 w-5" />
+                ) : (
+                  <Moon className="h-5 w-5" />
+                )}
+              </Button>
+            )}
             <Button
               variant="ghost"
               size="icon"
@@ -118,7 +164,7 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-background/95 backdrop-blur-md"
           >
-            <div className="container mx-auto px-4 py-4 mt-[-15px]">
+            <div className="container mx-auto px-6 sm:px-12 lg:px-16 xl:px-20 py-4 mt-[-15px]">
               <div className="flex flex-col space-y-4">
                 {navLinks.map((link, index) => (
                   <motion.div
@@ -139,6 +185,37 @@ export default function Navbar() {
                     </Link>
                   </motion.div>
                 ))}
+                {/* Theme Toggle in Mobile Menu */}
+                {mounted && (
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.6 }}
+                    className="pt-2"
+                  >
+                    <Button
+                      variant="ghost"
+                      onClick={() => {
+                        setTheme(theme === "dark" ? "light" : "dark");
+                        setIsOpen(false);
+                      }}
+                      className="w-full justify-start text-foreground/80 hover:text-primary"
+                      aria-label="Toggle theme"
+                    >
+                      {theme === "dark" ? (
+                        <>
+                          <Sun className="h-5 w-5 mr-2" />
+                          Light Mode
+                        </>
+                      ) : (
+                        <>
+                          <Moon className="h-5 w-5 mr-2" />
+                          Dark Mode
+                        </>
+                      )}
+                    </Button>
+                  </motion.div>
+                )}
               </div>
             </div>
           </motion.div>

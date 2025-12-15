@@ -27,6 +27,8 @@ export default function Chatbot() {
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
+  const chatWindowRef = useRef<HTMLDivElement>(null);
+  const toggleButtonRef = useRef<HTMLButtonElement>(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -35,6 +37,34 @@ export default function Chatbot() {
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+  // Handle click outside to close chatbot
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (!isOpen) return;
+
+      const target = event.target as Node;
+      
+      // Don't close if clicking on the toggle button or inside the chat window
+      if (
+        chatWindowRef.current?.contains(target) ||
+        toggleButtonRef.current?.contains(target)
+      ) {
+        return;
+      }
+
+      // Close if clicking outside
+      setIsOpen(false);
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
 
   async function sendToAssistant(prompt: string): Promise<string> {
     // Cancel any in-flight request if user sends again
@@ -137,6 +167,7 @@ export default function Chatbot() {
         transition={{ delay: 1, type: "spring", stiffness: 260, damping: 20 }}
       >
         <motion.button
+          ref={toggleButtonRef}
           onClick={() => setIsOpen(!isOpen)}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
@@ -173,15 +204,16 @@ export default function Chatbot() {
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* Backdrop for mobile */}
+            {/* Backdrop for all devices */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-black/20 backdrop-blur-sm z-30 sm:hidden"
+              className="fixed inset-0 bg-black/20 backdrop-blur-sm z-30"
             />
             <motion.div
+              ref={chatWindowRef}
               initial={{ opacity: 0, y: 20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 20, scale: 0.95 }}

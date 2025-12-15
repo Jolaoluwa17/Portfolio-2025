@@ -13,6 +13,7 @@ import Footer from "@/components/footer"
 import Navbar from "@/components/navbar"
 import Testimonials from "@/components/testimonials"
 import Chatbot from "@/components/portfolioChatbot"
+import CursorFollower from "@/components/cursor-follower"
 
 export default function Home() {
   const [showScrollTop, setShowScrollTop] = useState(false)
@@ -39,6 +40,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-background">
+      <CursorFollower />
       <Navbar />
 
       <section id="hero">

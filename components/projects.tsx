@@ -133,7 +133,7 @@ export default function Projects() {
   const displayedProjects = projects.slice(0, visibleCount);
 
   return (
-    <div className="container mx-auto px-4">
+    <div className="container mx-auto px-6 sm:px-12 lg:px-16 xl:px-20">
       {/* Section Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
