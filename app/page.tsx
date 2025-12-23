@@ -14,6 +14,7 @@ import Navbar from "@/components/navbar"
 import Testimonials from "@/components/testimonials"
 import Chatbot from "@/components/portfolioChatbot"
 import CursorFollower from "@/components/cursor-follower"
+import CookieConsent from "@/components/cookie-consent"
 
 export default function Home() {
   const [showScrollTop, setShowScrollTop] = useState(false)
@@ -91,6 +92,7 @@ export default function Home() {
       </AnimatePresence>
 
       <Chatbot />
+      <CookieConsent />
     </main>
   )
 }
